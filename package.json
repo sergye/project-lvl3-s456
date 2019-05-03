@@ -1,6 +1,6 @@
 {
   "name": "sergye-page-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Downloads page from url address",
   "main": "index.js",
   "bin": {
@@ -14,7 +14,7 @@
     "build": "NODE_ENV=production babel src --out-dir dist",
     "eslint": "eslint src __tests__/*.*",
     "prepublishOnly": "npm run build",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "keywords": [
     "sergye",
