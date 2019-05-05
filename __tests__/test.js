@@ -15,25 +15,15 @@ describe('test page loader', () => {
   let tempDir;
   beforeEach(async () => {
     tempDir = await fs.mkdtemp(`${os.tmpdir()}/`);
-    nock(host)
-      .get(resource)
-      .reply(200, testData);
-    nock(host)
-      .get('/absent_page')
-      .reply(404, 'Not Found');
-    nock(host)
-      .get('/')
-      .replyWithError({ code: 'ENOTFOUND' });
-    nock(host)
-      .get('/')
-      .reply(403, 'Forbidden');
   });
 
   it('should download without errors', (done) => {
     const fileName = getName(url);
     const filePath = path.resolve(tempDir, fileName);
     const expectedMessage = `OK: Data has been downloaded from ${url} to ${filePath}\n`;
-
+    nock(host)
+      .get(resource)
+      .reply(200, testData);
     return pageLoad(url, tempDir)
       .then((message) => {
         expect(message).toBe(expectedMessage);
@@ -45,38 +35,39 @@ describe('test page loader', () => {
       .catch(done.fail);
   });
 
+  it('should return Error 400', async () => {
+    const expectedMessage = 'ERROR 400: The request URL is invalid';
+    nock(host)
+      .get('not_a_url')
+      .reply(400, expectedMessage);
+    try {
+      await pageLoad('not_a_url', tempDir);
+    } catch (error) {
+      expect(error.message).toBe(expectedMessage);
+    }
+  });
+
+  it('should return Error 403', async () => {
+    const expectedMessage = 'ERROR 403: Connection refused by server';
+    nock(host)
+      .get('/forbidden_page')
+      .reply(403, expectedMessage);
+    try {
+      await pageLoad(`${host}/forbidden_page`, tempDir);
+    } catch (error) {
+      expect(error.message).toBe(expectedMessage);
+    }
+  });
+
   it('should return Error 404', async () => {
-    const expectedMessage = `ERROR: File isn't found by url ${url}\n`;
+    const expectedMessage = 'ERROR 404: Resource not found by url';
+    nock(host)
+      .get('/absent_page')
+      .reply(404, expectedMessage);
     try {
-      await pageLoad(url, tempDir);
+      await pageLoad(`${host}/absent_page`, tempDir);
     } catch (error) {
-      expect(error.code).toBe(expectedMessage);
-    }
-  });
-
-  it('should return ENOTFOUND', async () => {
-    const expectedMessage = `ERROR: Unable to connect to given URL: ${url}\n`;
-    try {
-      await pageLoad(url, tempDir);
-    } catch (error) {
-      expect(error.code).toBe(expectedMessage);
-    }
-  });
-
-  it('should return ECONNREFUSED', async () => {
-    const expectedMessage = `ERROR: Connection to ${url} refused by server\n`;
-    try {
-      await pageLoad(url, tempDir);
-    } catch (error) {
-      expect(error.code).toBe(expectedMessage);
-    }
-  });
-
-  it('should return some other Error', async () => {
-    try {
-      await pageLoad(url, tempDir);
-    } catch (error) {
-      expect(error.code).toBe(error.code);
+      expect(error.message).toBe(expectedMessage);
     }
   });
 });
