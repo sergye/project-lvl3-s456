@@ -1,24 +1,18 @@
 const showError = (error) => {
+  const status = {
+    403: 'ERROR 403: Connection refused by server',
+    404: 'ERROR 404: Resource not found by url',
+  };
+  const code = {
+    ENOTFOUND: 'ENOTFOUND: Unable to connect to given URL',
+    ECONNREFUSED: 'ECONNREFUSED: Connection refused by server',
+    ENOENT: 'ENOENT: No such file or directory',
+  };
   if (error.response) {
-    switch (error.response.status) {
-      case 403:
-        return 'ERROR 403: Connection refused by server';
-      case 404:
-        return 'ERROR 404: Resource not found by url';
-      default:
-        return error.message;
-    }
-  } else if (error.code) {
-    switch (error.code) {
-      case 'ENOTFOUND':
-        return 'ENOTFOUND: Unable to connect to given URL';
-      case 'ECONNREFUSED':
-        return 'ECONNREFUSED: Connection refused by server';
-      case 'ENOENT':
-        return 'ENOENT: No such file or directory';
-      default:
-        return error.message;
-    }
+    return status[error.response.status];
+  }
+  if (error.code) {
+    return code[error.code];
   }
   return error.message;
 };
