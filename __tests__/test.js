@@ -39,7 +39,7 @@ describe('test page loader', () => {
     const expectedMessage = 'ERROR 400: The request URL is invalid';
     nock(host)
       .get('not_a_url')
-      .reply(400, expectedMessage);
+      .reply(400);
     try {
       await pageLoad('not_a_url', tempDir);
     } catch (error) {
@@ -51,7 +51,7 @@ describe('test page loader', () => {
     const expectedMessage = 'ERROR 403: Connection refused by server';
     nock(host)
       .get('/forbidden_page')
-      .reply(403, expectedMessage);
+      .reply(403);
     try {
       await pageLoad(`${host}/forbidden_page`, tempDir);
     } catch (error) {
@@ -63,7 +63,43 @@ describe('test page loader', () => {
     const expectedMessage = 'ERROR 404: Resource not found by url';
     nock(host)
       .get('/absent_page')
-      .reply(404, expectedMessage);
+      .reply(404);
+    try {
+      await pageLoad(`${host}/absent_page`, tempDir);
+    } catch (error) {
+      expect(error.message).toBe(expectedMessage);
+    }
+  });
+
+  it('should return ENOTFOUND', async () => {
+    const expectedMessage = 'ENOTFOUND: Unable to connect to given URL';
+    nock(host)
+      .get('/wrong_resource')
+      .replyWithError(expectedMessage);
+    try {
+      await pageLoad(`${host}/wrong_resource`, tempDir);
+    } catch (error) {
+      expect(error.message).toBe(expectedMessage);
+    }
+  });
+
+  it('should return ECONNREFUSED', async () => {
+    const expectedMessage = 'ECONNREFUSED: Connection refused by server';
+    nock(host)
+      .get('/forbidden_page')
+      .replyWithError(expectedMessage);
+    try {
+      await pageLoad(`${host}/forbidden_page`, tempDir);
+    } catch (error) {
+      expect(error.message).toBe(expectedMessage);
+    }
+  });
+
+  it('should return ENOENT', async () => {
+    const expectedMessage = 'ENOENT: No such file or directory';
+    nock(host)
+      .get('/absent_page')
+      .replyWithError(expectedMessage);
     try {
       await pageLoad(`${host}/absent_page`, tempDir);
     } catch (error) {

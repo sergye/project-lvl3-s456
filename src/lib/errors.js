@@ -10,6 +10,17 @@ const showError = (error) => {
       default:
         return error.message;
     }
+  } else if (error.code) {
+    switch (error.code) {
+      case 'ENOTFOUND':
+        return 'ENOTFOUND: Unable to connect to given URL';
+      case 'ECONNREFUSED':
+        return 'ECONNREFUSED: Connection refused by server';
+      case 'ENOENT':
+        return 'ENOENT: No such file or directory';
+      default:
+        return error.message;
+    }
   }
   return error.message;
 };
