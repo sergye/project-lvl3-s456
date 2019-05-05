@@ -35,18 +35,6 @@ describe('test page loader', () => {
       .catch(done.fail);
   });
 
-  it('should return Error 400', async () => {
-    const expectedMessage = 'ERROR 400: The request URL is invalid';
-    nock(host)
-      .get('not_a_url')
-      .reply(400);
-    try {
-      await pageLoad('not_a_url', tempDir);
-    } catch (error) {
-      expect(error.message).toBe(expectedMessage);
-    }
-  });
-
   it('should return Error 403', async () => {
     const expectedMessage = 'ERROR 403: Connection refused by server';
     nock(host)

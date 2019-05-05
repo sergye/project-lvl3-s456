@@ -1,8 +1,6 @@
 const showError = (error) => {
   if (error.response) {
     switch (error.response.status) {
-      case 400:
-        return 'ERROR 400: The request URL is invalid';
       case 403:
         return 'ERROR 403: Connection refused by server';
       case 404:
