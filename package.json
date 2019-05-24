@@ -1,6 +1,6 @@
 {
   "name": "sergye-page-loader",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Downloads page from url address",
   "main": "index.js",
   "bin": {
@@ -15,6 +15,10 @@
     "eslint": "eslint src __tests__/*.*",
     "prepublishOnly": "npm run build",
     "test": "jest --coverage"
+  },
+    "jest": {
+    "verbose": true,
+    "testPathIgnorePatterns": ["/node_modules/", "__tests__/__fixtures__/hello.js"]
   },
   "keywords": [
     "sergye",
@@ -65,6 +69,8 @@
     "url": "*",
     "mz": "*",
     "axios": "*",
-    "nock": "*"  	
+    "nock": "*",
+    "cheerio": "*",
+    "lodash": "*"
   }
 }
