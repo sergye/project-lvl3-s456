@@ -1,6 +1,6 @@
 {
   "name": "sergye-page-loader",
-  "version": "1.0.12",
+  "version": "1.0.15",
   "description": "Downloads page from url address",
   "main": "index.js",
   "bin": {
@@ -16,9 +16,12 @@
     "prepublishOnly": "npm run build",
     "test": "jest --coverage"
   },
-    "jest": {
+  "jest": {
     "verbose": true,
-    "testPathIgnorePatterns": ["/node_modules/", "__tests__/__fixtures__/hello.js"]
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "__tests__/__fixtures__/hello.js"
+    ]
   },
   "keywords": [
     "sergye",
@@ -37,19 +40,17 @@
   "homepage": "https://github.com/sergye/project-lvl3-s456#readme",
   "devDependencies": {
     "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
-    "@babel/node": "^7.2.2",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.2",
     "@babel/preset-flow": "^7.0.0",
-    "axios": "^0.18.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^24.5.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "commander": "^2.19.0",
+    "debug": "^4.1.1",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-babel": "^5.3.0",
@@ -65,12 +66,13 @@
     "url": "^0.11.0"
   },
   "dependencies": {
-    "commander": "*",
-    "url": "*",
-    "mz": "*",
     "axios": "*",
-    "nock": "*",
     "cheerio": "*",
-    "lodash": "*"
+    "commander": "*",
+    "debug": "*",
+    "lodash": "*",
+    "mz": "*",
+    "nock": "*",
+    "url": "*"
   }
 }
