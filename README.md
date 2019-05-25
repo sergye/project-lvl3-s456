@@ -16,4 +16,4 @@ npm install -g sergye-page-loader
 
 page-loader --output /var/tmp https://hexlet.io/courses
 
-<a href="https://asciinema.org/a/BA1kt7Mk54Ko2xvjMbDpzU1Qx">See how to use</a>
+<a href="https://asciinema.org/a/BxiIlvvtLv1sUVw8HVaJ7oDfZ">See how to use</a>

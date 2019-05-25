@@ -26,5 +26,5 @@ export default (url, outputPath = '.') => {
         fs.writeFile(pageName, localPageData)]);
     })
     .then(() => `OK: Data has been downloaded from ${url} to ${pageName}\n`)
-    .catch(error => Promise.reject(new Error(showError(url, error))));
+    .catch(error => showError(url, error));
 };

@@ -5,13 +5,16 @@ import pjson from '../../package.json';
 
 program
   .version(pjson.version)
-  .description('Download page to given location')
+  .description('Download page to specified location')
   .arguments('<url>')
-  .option('-o, --output [path_to_save]', 'Path to save files')
+  .option('-o, --output [path_to_save]', 'Path to download files')
   .action((url) => {
     pageLoader(url, program.output)
       .then(res => console.log(res))
-      .catch(error => console.log(error));
+      .catch((error) => {
+        console.error(error);
+        process.exit(1);
+      });
   })
   .parse(process.argv);
 
