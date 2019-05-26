@@ -1,6 +1,6 @@
 {
   "name": "sergye-page-loader",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "Downloads page from url address",
   "main": "index.js",
   "bin": {
@@ -70,6 +70,7 @@
     "cheerio": "*",
     "commander": "*",
     "debug": "*",
+    "listr": "*",
     "lodash": "*",
     "mz": "*",
     "nock": "*",
