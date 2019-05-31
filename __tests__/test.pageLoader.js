@@ -52,7 +52,7 @@ describe('Resorces download test', () => {
       const deepData = await readFile(path.resolve(tempDir, 'localhost_files', 'assets-butterfly.jpg'));
       expect(deepData).toStrictEqual(await match('deepData'));
     } catch (error) {
-      console.error(error.message);
+      console.log(error.message);
       throw error;
     }
   });
