@@ -53,7 +53,6 @@ describe('Resorces download test', () => {
       expect(deepData).toStrictEqual(await match('deepData'));
     } catch (error) {
       console.log(error.message);
-      throw error;
     }
   });
 
