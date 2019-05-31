@@ -1,14 +1,16 @@
-import fs from 'mz/fs';
+import fs from 'fs';
+import { promisify } from 'util';
 import os from 'os';
 import nock from 'nock';
 import pageLoad from '../src';
 
+const mkdtemp = promisify(fs.mkdtemp);
 const host = 'https://hexlet.io';
 
 describe('test page loader', () => {
   let tempDir;
   beforeEach(async () => {
-    tempDir = await fs.mkdtemp(`${os.tmpdir()}/`);
+    tempDir = await mkdtemp(`${os.tmpdir()}/`);
   });
 
   it('should return Error 403', async () => {

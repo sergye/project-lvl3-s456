@@ -2,10 +2,10 @@ install:
 		npm install
 
 start: 
-		npm run babel-node -- 'src/bin/page-loader.js'
+		npx babel-node -- 'src/bin/page-loader.js'
 
 lint: 
-		npm run eslint .
+		npx eslint .
 
 publish: 
 		npm publish
@@ -15,6 +15,3 @@ build:
 
 test:
 		npm test
-
-test-watch:
-		npm run test:watch

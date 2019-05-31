@@ -4,7 +4,7 @@ import path from 'path';
 export const formatPath = (address) => {
   const { host, pathname } = url.parse(address);
   const trimmedPath = pathname !== '/' ? `${host}${pathname}` : `${host}`;
-  return `${trimmedPath.replace(/[^A-Za-z]+/g, '-')}`;
+  return `${trimmedPath.replace(/[^\w]+/g, '-')}`;
 };
 
 const getPageName = urlPath => `${formatPath(urlPath)}.html`;
@@ -16,7 +16,7 @@ const getFileName = (link) => {
   const pathObj = path.parse(urlPath);
   const fullPath = `${pathObj.dir}/${pathObj.name}`;
   const fileExt = pathObj.ext === '' ? '.html' : pathObj.ext;
-  return `${fullPath.split(/[^A-Z, a-z, 0-9]/g).filter(e => e).join('-')}${fileExt}`;
+  return `${fullPath.split(/[^\w]/g).filter(e => e).join('-')}${fileExt}`;
 };
 
 const getFullLink = (pageURL, link) => {
