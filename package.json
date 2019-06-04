@@ -1,6 +1,6 @@
 {
   "name": "sergye-page-loader",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "Downloads page from url address",
   "main": "index.js",
   "bin": {

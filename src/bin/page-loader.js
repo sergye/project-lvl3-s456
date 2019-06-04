@@ -7,7 +7,7 @@ program
   .version(pjson.version)
   .description('Download page to specified location')
   .arguments('<url>')
-  .option('-o, --output [path_to_save]', 'Path to download files')
+  .option('-o, --output [path_to_save]', 'Path to download files', process.cwd())
   .action((url) => {
     pageLoader(url, program.output)
       .then(res => console.log(res))

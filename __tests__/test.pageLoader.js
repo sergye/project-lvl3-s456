@@ -1,28 +1,21 @@
 import nock from 'nock';
 import path from 'path';
-import fs from 'fs';
-import { promisify } from 'util';
+import { promises as fs } from 'fs';
 import os from 'os';
 import pageLoad from '../src';
-
-const readFile = promisify(fs.readFile);
 
 describe('Resorces download test', () => {
   const address = 'http://localhost';
   const tempDir = os.tmpdir();
   const sourcePageDir = path.resolve('./__tests__/__fixtures__/');
 
-  beforeAll(async () => {
-    await pageLoad(address, tempDir);
-  });
-
   const match = async (objToMatch) => {
     const dataList = {
-      resultPage: await readFile(path.resolve(sourcePageDir, 'resultPage.html'), 'utf-8'),
-      sourcePage: await readFile(path.resolve(sourcePageDir, 'sourcePage.html'), 'utf-8'),
-      script: await readFile(path.resolve(sourcePageDir, 'hello.js')),
-      link: await readFile(path.resolve(sourcePageDir, 'coffee-icon.ico')),
-      deepData: await readFile(path.resolve(sourcePageDir, 'butterfly.jpg')),
+      resultPage: await fs.readFile(path.resolve(sourcePageDir, 'resultPage.html'), 'utf-8'),
+      sourcePage: await fs.readFile(path.resolve(sourcePageDir, 'sourcePage.html'), 'utf-8'),
+      script: await fs.readFile(path.resolve(sourcePageDir, 'hello.js')),
+      link: await fs.readFile(path.resolve(sourcePageDir, 'coffee-icon.ico')),
+      deepData: await fs.readFile(path.resolve(sourcePageDir, 'butterfly.jpg')),
     };
     return dataList[objToMatch];
   };
@@ -43,25 +36,16 @@ describe('Resorces download test', () => {
 
   it('should check how resources have been downloaded', async () => {
     try {
-      const resultPage = await readFile(path.resolve(tempDir, 'localhost.html'), 'utf8');
+      await pageLoad(address, tempDir);
+      const resultPage = await fs.readFile(path.resolve(tempDir, 'localhost.html'), 'utf8');
       expect(resultPage).toBe(await match('resultPage'));
-      const script = await readFile(path.resolve(tempDir, 'localhost_files', 'hello.js'));
+      const script = await fs.readFile(path.resolve(tempDir, 'localhost_files', 'hello.js'));
       expect(script).toStrictEqual(await match('script'));
-      const link = await readFile(path.resolve(tempDir, 'localhost_files', 'coffee-icon.ico'));
+      const link = await fs.readFile(path.resolve(tempDir, 'localhost_files', 'coffee-icon.ico'));
       expect(link).toStrictEqual(await match('link'));
-      const deepData = await readFile(path.resolve(tempDir, 'localhost_files', 'assets-butterfly.jpg'));
+      const deepData = await fs.readFile(path.resolve(tempDir, 'localhost_files', 'assets-butterfly.jpg'));
       expect(deepData).toStrictEqual(await match('deepData'));
     } catch (error) {
-      console.log(error.message);
-    }
-  });
-
-  it('should catch resource loader error', async () => {
-    const expectedMessage = `Unable to download ${address}/\nERROR 503: Service Temporarily Unavailable`;
-    try {
-      await pageLoad(`${address}/`, tempDir);
-    } catch (error) {
-      expect(error.message).toBe(expectedMessage);
       throw error;
     }
   });
