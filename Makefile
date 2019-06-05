@@ -1,17 +1,17 @@
 install: 
-		npm install
+	npm install
 
 start: 
-		npx babel-node -- 'src/bin/page-loader.js'
+	npx babel-node -- 'src/bin/page-loader.js'
 
 lint: 
-		npx eslint .
+	npx eslint .
 
 publish: 
-		npm publish
+	npm publish
 
 build:
-		npm run build
+	npm run build
 
 test:
-		npm test
+	npm test
