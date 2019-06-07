@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"net":{"http_server_properties":{"servers":[{"https://marketplace.visualstudio.com":{"supports_spdy":true}},{"https://az764295.vo.msecnd.net":{"supports_spdy":true}}],"version":5}}}
+=======
+{"net":{"http_server_properties":{"servers":[{"https://az764295.vo.msecnd.net":{"supports_spdy":true}},{"https://marketplace.visualstudio.com":{"supports_spdy":true}}],"version":5}}}
+>>>>>>> f6662c9... Init commit

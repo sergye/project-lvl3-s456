@@ -3,9 +3,12 @@
     "openedPathsList": {
         "workspaces3": [],
         "files2": [
+<<<<<<< HEAD
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/package.json",
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/index.js",
+=======
+>>>>>>> f6662c9... Init commit
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js"
         ]
     },
@@ -52,6 +55,7 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
+<<<<<<< HEAD
                                         "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/package.json",
                                         "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/package.json",
                                         "scheme": "file"
@@ -85,6 +89,8 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
+=======
+>>>>>>> f6662c9... Init commit
                                         "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js",
                                         "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js",
                                         "scheme": "file"
@@ -576,7 +582,12 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
+<<<<<<< HEAD
                         "label": "&&Last Edit Location"
+=======
+                        "label": "&&Last Edit Location",
+                        "enabled": false
+>>>>>>> f6662c9... Init commit
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -848,7 +859,12 @@
                     },
                     {
                         "id": "workbench.action.terminal.split",
+<<<<<<< HEAD
                         "label": "&&Split Terminal"
+=======
+                        "label": "&&Split Terminal",
+                        "enabled": false
+>>>>>>> f6662c9... Init commit
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1409,6 +1425,7 @@
     },
     "theme": "vs-dark",
     "themeBackground": "#1e1e1e",
+<<<<<<< HEAD
     "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456",
     "windowsState": {
         "lastActiveWindow": {
@@ -1423,4 +1440,7 @@
         },
         "openedWindows": []
     }
+=======
+    "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib"
+>>>>>>> f6662c9... Init commit
 }
