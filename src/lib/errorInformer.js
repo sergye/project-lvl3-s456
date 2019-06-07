@@ -1,4 +1,4 @@
-const outputError = (url, error) => {
+const getErrorMessage = (url, error) => {
   const failMessage = `Unable to download ${url}`;
   const status = {
     403: `${failMessage}\nERROR 403: Connection refused by server`,
@@ -20,4 +20,4 @@ const outputError = (url, error) => {
   return error.message;
 };
 
-export default outputError;
+export default getErrorMessage;
