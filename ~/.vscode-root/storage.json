@@ -3,6 +3,8 @@
     "openedPathsList": {
         "workspaces3": [],
         "files2": [
+            "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
+            "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/index.js",
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js"
         ]
     },
@@ -44,6 +46,28 @@
                                 },
                                 {
                                     "id": "vscode.menubar.separator"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
+                                        "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Hexlet/Projects/project-lvl3-s456/.gitignore"
+                                },
+                                {
+                                    "id": "openRecentFile",
+                                    "uri": {
+                                        "$mid": 1,
+                                        "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/index.js",
+                                        "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/src/index.js",
+                                        "scheme": "file"
+                                    },
+                                    "enabled": true,
+                                    "label": "~/Hexlet/Projects/project-lvl3-s456/src/index.js"
                                 },
                                 {
                                     "id": "openRecentFile",
@@ -540,8 +564,7 @@
                     },
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
-                        "label": "&&Last Edit Location",
-                        "enabled": false
+                        "label": "&&Last Edit Location"
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1375,5 +1398,5 @@
     },
     "theme": "vs-dark",
     "themeBackground": "#1e1e1e",
-    "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib"
+    "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456"
 }
