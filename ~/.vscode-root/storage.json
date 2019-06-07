@@ -4,11 +4,16 @@
         "workspaces3": [],
         "files2": [
 <<<<<<< HEAD
+<<<<<<< HEAD
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/package.json",
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/index.js",
 =======
 >>>>>>> f6662c9... Init commit
+=======
+            "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
+            "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/index.js",
+>>>>>>> 706d3b4... Add ~ to .gitignore
             "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js"
         ]
     },
@@ -56,6 +61,7 @@
                                     "uri": {
                                         "$mid": 1,
 <<<<<<< HEAD
+<<<<<<< HEAD
                                         "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/package.json",
                                         "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/package.json",
                                         "scheme": "file"
@@ -67,6 +73,8 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
+=======
+>>>>>>> 706d3b4... Add ~ to .gitignore
                                         "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
                                         "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/.gitignore",
                                         "scheme": "file"
@@ -89,8 +97,11 @@
                                     "id": "openRecentFile",
                                     "uri": {
                                         "$mid": 1,
+<<<<<<< HEAD
 =======
 >>>>>>> f6662c9... Init commit
+=======
+>>>>>>> 706d3b4... Add ~ to .gitignore
                                         "external": "file:///home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js",
                                         "path": "/home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib/errorInformer.js",
                                         "scheme": "file"
@@ -583,11 +594,15 @@
                     {
                         "id": "workbench.action.navigateToLastEditLocation",
 <<<<<<< HEAD
+<<<<<<< HEAD
                         "label": "&&Last Edit Location"
 =======
                         "label": "&&Last Edit Location",
                         "enabled": false
 >>>>>>> f6662c9... Init commit
+=======
+                        "label": "&&Last Edit Location"
+>>>>>>> 706d3b4... Add ~ to .gitignore
                     },
                     {
                         "id": "vscode.menubar.separator"
@@ -1426,6 +1441,7 @@
     "theme": "vs-dark",
     "themeBackground": "#1e1e1e",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456",
     "windowsState": {
         "lastActiveWindow": {
@@ -1443,4 +1459,7 @@
 =======
     "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456/src/lib"
 >>>>>>> f6662c9... Init commit
+=======
+    "pickerWorkingDir": "/home/sergye/Hexlet/Projects/project-lvl3-s456"
+>>>>>>> 706d3b4... Add ~ to .gitignore
 }
