@@ -5,7 +5,7 @@ import Listr from 'listr';
 import axios from './lib/axios';
 import getName from './lib/nameFormater';
 import parseLinks from './lib/linkParser';
-import outputError from './lib/errorInformer';
+import getErrorMessage from './lib/errorInformer';
 
 const log = debug('page-loader:main');
 
@@ -13,7 +13,7 @@ const loadResources = (urls, dir) => {
   const getResource = (url, folder) => {
     axios.get(url, { responseType: 'arraybuffer' })
       .then(result => fs.writeFile(path.resolve(folder, getName('getFileName', url)), result.data))
-      .catch(error => outputError(url, error));
+      .catch(error => getErrorMessage(url, error));
   };
   fs.mkdir(dir)
     .then(() => log(`Download started to directory: ${dir}`))
@@ -53,5 +53,5 @@ export default (url, outputPath = '.') => {
   return tasks.run()
     .then(ctx => ctx.result)
     .then(() => `OK: Data has been downloaded from ${url} to ${pageName}\n`)
-    .catch(error => outputError(url, error));
+    .catch(error => getErrorMessage(url, error));
 };
